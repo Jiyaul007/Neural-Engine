@@ -128,7 +128,7 @@ flowchart TB
 ### 1. Installation
 Clone or navigate to the project directory:
 ```powershell
-cd C:\Users\jiyau\.gemini\antigravity\scratch\neural-engine
+cd C:\Users\user\.gemini\antigravity\scratch\neural-engine
 npm install
 ```
 
