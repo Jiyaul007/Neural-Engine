@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Dark Compute Base ── */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scrollbar-width: none;
+    background: #000000;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #000000;
+    color: #e8e8e8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  ::selection {
+    background: rgba(0, 240, 255, 0.2);
+    color: #fff;
+  }
+}
+
+/* ── Neural Typography ── */
+.neural-text {
+  font-feature-settings: 'ss01' on, 'ss02' on;
+  transition: font-variation-settings 0.15s cubic-bezier(0.23, 1, 0.32, 1),
+              letter-spacing 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: font-variation-settings, letter-spacing;
+}
+
+/* ── Micro Data UI ── */
+.micro-data {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  font-feature-settings: 'zero' on, 'ss01' on;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+}
+
+/* ── Glass Panel ── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Keyframes ── */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(80);
+    opacity: 0;
+  }
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translateX(0); }
+  10% { transform: translateX(-2px); }
+  20% { transform: translateX(2px); }
+  30% { transform: translateX(-1px); }
+  40% { transform: translateX(1px); }
+  50% { transform: translateX(0); }
+}
+
+@keyframes noise-resolve {
+  0% {
+    filter: contrast(2) brightness(0.5) blur(4px);
+    opacity: 0.3;
+  }
+  50% {
+    filter: contrast(1.5) brightness(0.8) blur(1px);
+    opacity: 0.7;
+  }
+  100% {
+    filter: contrast(1) brightness(1) blur(0);
+    opacity: 1;
+  }
+}
+
+@keyframes data-flow {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ── Utility ── */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Feature Preview Noise Pattern ── */
+.noise-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  animation: noise-shift 0.3s steps(4) infinite;
+}
+
+@keyframes noise-shift {
+  0% { background-position: 0 0; }
+  25% { background-position: 100px 50px; }
+  50% { background-position: -50px 100px; }
+  75% { background-position: 50px -100px; }
+  100% { background-position: 0 0; }
+}

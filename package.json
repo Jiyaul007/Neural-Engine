@@ -1,0 +1,60 @@
+{
+  "name": "neural-engine",
+  "version": "1.0.0",
+  "description": "Real-time spatial AI engine & 3D GPU neural manifold visualizer built with React, Three.js, custom GLSL compute shaders, and procedural Web Audio.",
+  "author": "Jiyaul007",
+  "license": "MIT",
+  "homepage": "https://github.com/Jiyaul007/Neural-Engine",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jiyaul007/Neural-Engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jiyaul007/Neural-Engine/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n \"CLIENT,SERVER\" -c \"cyan,magenta\" \"vite --host\" \"tsx server/server.ts\"",
+    "client": "vite --host",
+    "server": "tsx server/server.ts",
+    "ml": "python ml_server/main.py",
+    "dev:full": "concurrently \"npm run dev\" \"python ml_server/main.py\"",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.120.0",
+    "@react-three/fiber": "^8.17.0",
+    "@react-three/postprocessing": "^2.16.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/ws": "^8.18.2",
+    "concurrently": "^10.0.5",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "framer-motion": "^11.15.0",
+    "gsap": "^3.12.0",
+    "lenis": "^1.1.0",
+    "openai": "^7.27.0",
+    "postprocessing": "^6.36.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "three": "^0.170.0",
+    "tsx": "^4.23.15",
+    "ws": "^8.22.0",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@types/three": "^0.170.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.6.0",
+    "vite": "^5.4.0",
+    "vite-plugin-glsl": "^1.3.0"
+  }
+}
